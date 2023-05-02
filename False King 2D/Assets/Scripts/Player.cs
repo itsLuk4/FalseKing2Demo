@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] float runSpeed = 10f;
     // now for jumping
     [SerializeField] float jumpSpeed = 15f;
+    [SerializeField] float climbingSpeed = 8f;
 
     // references
     Rigidbody2D myRigidBody2D;
@@ -35,7 +36,22 @@ public class Player : MonoBehaviour
 
         Run();
         Jump();
+        Climb();
         
+    }
+
+    private void Climb()
+    {
+        if (myPlayersFeet.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        {
+            float controlThrow = CrossPlatformInputManager.GetAxis("Vertical");
+            Vector2 climbingVelocity = new Vector2(myRigidBody2D.velocity.x, controlThrow * climbingSpeed);
+
+            myRigidBody2D.velocity = climbingVelocity;
+
+            bool climbingStart = Mathf.Abs(myRigidBody2D.velocity.y) > Mathf.Epsilon;
+            myAnimator.SetBool("Climbing", climbingStart);
+        }
     }
 
     private void Jump()
