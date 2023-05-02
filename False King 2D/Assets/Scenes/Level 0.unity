@@ -180,7 +180,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1779,6 +1779,40 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
+--- !u!1 &885059489 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7895251626933565398, guid: bd2b99ac9855f194381f72a7f8292dd0, type: 3}
+  m_PrefabInstance: {fileID: 7895251627264956535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &885059498
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885059489}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.9333333, y: 1.9333333}
+    newSize: {x: 1.8125, y: 1.8125}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.1540252, y: -0.3504971}
+      - {x: -0.15402544, y: -0.5023245}
+      - {x: 0.31410825, y: -0.50115913}
+      - {x: 0.3123305, y: -0.35464504}
 --- !u!1 &1077110965
 GameObject:
   m_ObjectHideFlags: 0
@@ -4260,9 +4294,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 885059497, guid: bd2b99ac9855f194381f72a7f8292dd0, type: 3}
-      propertyPath: jumpSpeed
-      value: 15
+    - target: {fileID: 885059496, guid: bd2b99ac9855f194381f72a7f8292dd0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7648
+      objectReference: {fileID: 0}
+    - target: {fileID: 885059496, guid: bd2b99ac9855f194381f72a7f8292dd0, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.08137038
+      objectReference: {fileID: 0}
+    - target: {fileID: 885059496, guid: bd2b99ac9855f194381f72a7f8292dd0, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.06572443
       objectReference: {fileID: 0}
     - target: {fileID: 7895251626933565395, guid: bd2b99ac9855f194381f72a7f8292dd0, type: 3}
       propertyPath: m_RootOrder

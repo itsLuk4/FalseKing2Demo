@@ -14,9 +14,11 @@ public class Player : MonoBehaviour
     // now for jumping
     [SerializeField] float jumpSpeed = 15f;
 
+    // references
     Rigidbody2D myRigidBody2D;
     Animator myAnimator;
     BoxCollider2D myBoxCollider2D;
+    PolygonCollider2D myPlayersFeet;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
         myRigidBody2D = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myBoxCollider2D = GetComponent<BoxCollider2D>();
+        myPlayersFeet = GetComponent<PolygonCollider2D>();
     }
 
     // Update is called once per frame
@@ -38,7 +41,7 @@ public class Player : MonoBehaviour
     private void Jump()
     {
         // the '!' negates whatever is infront of it. if the condition is false it will execute it
-        if (!myBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (!myPlayersFeet.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             // this return takes us out of the jump method
             return;
