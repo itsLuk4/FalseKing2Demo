@@ -180,7 +180,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 841445140}
   - component: {fileID: 841445139}
   - component: {fileID: 841445138}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1779,23 +1779,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
---- !u!1 &885059489 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7895251626933565398, guid: bd2b99ac9855f194381f72a7f8292dd0, type: 3}
-  m_PrefabInstance: {fileID: 7895251627264956535}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &885059497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 885059489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56afa26e0cc361245b106985e40d4c72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1077110965
 GameObject:
   m_ObjectHideFlags: 0
@@ -4277,6 +4260,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 885059497, guid: bd2b99ac9855f194381f72a7f8292dd0, type: 3}
+      propertyPath: jumpSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7895251626933565395, guid: bd2b99ac9855f194381f72a7f8292dd0, type: 3}
       propertyPath: m_RootOrder
       value: 2
