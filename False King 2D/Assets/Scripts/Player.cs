@@ -61,7 +61,10 @@ public class Player : MonoBehaviour
 
         }
         else
+        {
+            myAnimator.SetBool("Climbing", false);
             myRigidBody2D.gravityScale = startingGravityScale;
+        }
         /*
             myAnimator.SetBool("Climbing", true);
         }
