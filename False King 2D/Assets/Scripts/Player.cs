@@ -14,7 +14,9 @@ public class Player : MonoBehaviour
     // now for jumping
     [SerializeField] float jumpSpeed = 15f;
     [SerializeField] float climbingSpeed = 8f;
+    [SerializeField] float attackRadius = 3f;
     [SerializeField] Vector2 hitKick = new Vector2(10f, 10f);
+    [SerializeField] Transform hurtBox;
 
     // references
     Rigidbody2D myRigidBody2D;
@@ -45,6 +47,7 @@ public class Player : MonoBehaviour
             Run();
             Jump();
             Climb();
+            Attack();
 
             if (myBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy")))
             {
@@ -53,15 +56,25 @@ public class Player : MonoBehaviour
 
         }
 
-        
-            
-        
-        
+    }
+
+    private void Attack()
+    {
+        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+        {
+            myAnimator.SetTrigger("Attacking");
+            Collider2D[] enemiesToHit = Physics2D.OverlapCircleAll(hurtBox.position, attackRadius, LayerMask.GetMask("Enemy"));
+
+            foreach(Collider2D enemy in enemiesToHit)
+            {
+                print("HA HA! I've hit you!");
+            }
+        }
     }
 
     private void PlayerHit()
     {
-        // with this the enemy pushe the character back
+        // with this the enemy pushes the character back
         myRigidBody2D.velocity = hitKick * new Vector2(-transform.localScale.x, 1f);
 
         // set trigger for hitting
@@ -165,5 +178,10 @@ public class Player : MonoBehaviour
 
     }
 
-    
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(hurtBox.position, attackRadius);
+    }
+
+
 }

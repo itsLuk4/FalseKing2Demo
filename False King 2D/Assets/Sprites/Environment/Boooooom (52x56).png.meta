@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f53d5b19a59f34c4fac1fb6479b4cdd0
+guid: 933a573d9082a90428e8f6b948d89097
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack (78x58)_0
+      name: Boooooom (52x56)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 78
-        height: 58
+        width: 52
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 000633acf1f73e943823d1538aa33e37
-      internalID: 1988011768
+      spriteID: e07829fb8b99f7b43afcc72948c071d1
+      internalID: -356905707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack (78x58)_1
+      name: Boooooom (52x56)_1
       rect:
         serializedVersion: 2
-        x: 78
+        x: 52
         y: 0
-        width: 78
-        height: 58
+        width: 52
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dc85ec471ce8a445a7efee433d5836c
-      internalID: -1804380327
+      spriteID: 464b158b5203a6849854b6c4a9ea934d
+      internalID: 633449598
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack (78x58)_2
+      name: Boooooom (52x56)_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 52
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84ec3fd9b4dab264d8bb6e3282d2b2ce
+      internalID: 1782136874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boooooom (52x56)_3
       rect:
         serializedVersion: 2
         x: 156
         y: 0
-        width: 78
-        height: 58
+        width: 52
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,8 +194,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4106665722e5ec147bed1a58c48248ce
-      internalID: -2139568311
+      spriteID: 0d815e3ee13b2ad478a7bee5d9578dc6
+      internalID: 1320154336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boooooom (52x56)_4
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 0
+        width: 52
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51e3e4272a1801c4d9febb920531639a
+      internalID: -1449425838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boooooom (52x56)_5
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 0
+        width: 52
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71c025c8774b3a8459f489d540be9c8d
+      internalID: -703256863
       vertices: []
       indices: 
       edges: []
@@ -190,9 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Attack (78x58)_0: 1988011768
-      Attack (78x58)_1: -1804380327
-      Attack (78x58)_2: -2139568311
+      Boooooom (52x56)_0: -356905707
+      Boooooom (52x56)_1: 633449598
+      Boooooom (52x56)_2: 1782136874
+      Boooooom (52x56)_3: 1320154336
+      Boooooom (52x56)_4: -1449425838
+      Boooooom (52x56)_5: -703256863
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
