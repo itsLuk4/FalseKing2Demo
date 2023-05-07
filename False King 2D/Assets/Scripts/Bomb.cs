@@ -22,7 +22,13 @@ public class Bomb : MonoBehaviour
     }
     void ExplodeBomb()
     {
-        Physics2D.OverlapCircle(transform.position, radius, LayerMask.GetMask("Player"));
+        Collider2D playerCollider = Physics2D.OverlapCircle(transform.position, radius, LayerMask.GetMask("Player"));
+
+        if (playerCollider)
+        {
+            print("Heey");
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

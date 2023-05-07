@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
 
             foreach(Collider2D enemy in enemiesToHit)
             {
-                print("HA HA! I've hit you!");
+                enemy.GetComponent<Enemy>().Dying();
             }
         }
     }
