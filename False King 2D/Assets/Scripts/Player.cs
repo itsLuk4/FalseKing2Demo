@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     // now for jumping
     [SerializeField] float jumpSpeed = 15f;
     [SerializeField] float climbingSpeed = 8f;
+    [SerializeField] Vector2 hitKick = new Vector2(10f, 10f);
 
     // references
     Rigidbody2D myRigidBody2D;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     PolygonCollider2D myPlayersFeet;
 
     float startingGravityScale;
+    bool isHurting;
 
     // Start is called before the first frame update
     void Start()
@@ -37,11 +39,44 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if players gets hurt he cant do anything
+        if (!isHurting)
+        {
+            Run();
+            Jump();
+            Climb();
 
-        Run();
-        Jump();
-        Climb();
+            if (myBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+            {
+                PlayerHit();
+            }
+
+        }
+
         
+            
+        
+        
+    }
+
+    private void PlayerHit()
+    {
+        // with this the enemy pushe the character back
+        myRigidBody2D.velocity = hitKick * new Vector2(-transform.localScale.x, 1f);
+
+        // set trigger for hitting
+        myAnimator.SetTrigger("Hitting");
+        isHurting = true;
+
+        StartCoroutine(StopHurting());
+    }
+
+    // we made a Coroutine that waits for two seconds and turns the methos 'isHurting' false    
+    IEnumerator StopHurting()
+    {
+        yield return new WaitForSeconds(1f);
+
+        isHurting = false;
     }
 
     private void Climb()
@@ -129,4 +164,6 @@ public class Player : MonoBehaviour
         myAnimator.SetBool("Running", runningStart);
 
     }
+
+    
 }
