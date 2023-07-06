@@ -23,4 +23,4 @@ To finish the game or leave the application press the 'CTRL+F4'.
 
 ## Play the game
 
-<a href="False King 2D/Demo/index.html"> To play the game, click the link!</a>
+<a href="False King 2D/demoVersion/index.html"> To play the game, click the link!</a>
