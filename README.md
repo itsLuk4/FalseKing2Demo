@@ -1,0 +1,14 @@
+# My-platformer game
+A 2D platformer game as my first big project.
+
+## Goal
+
+Get the hero to clear the whole level of monsters.
+
+## Controls
+
+Movement with 'left, right, up and down arrow keys' or 'a, d, w, s keys'.
+You attack the enemy with the 'Left Control' button.
+Jumping is with the 'Space-bar'.
+
+To finish the game or leave the application press the 'CTRL+F4'.
