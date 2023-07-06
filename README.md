@@ -5,7 +5,7 @@ A 2D platformer game as my first big project.
 
 Get the hero to clear the whole level of monsters.
 
-# Story
+## Story
 
 Our protagonist is next in line to become king, but his ascension is rudely interrupted by a curse from Lord Pigsturr, his arch-nemesis. The curse has turned everyone in the castle into pigs. Those affected by the curse have become mindless and aggressive, seeing all other races as their enemies. Our 'False King' must reclaim his rightful castle and lift the curse before it's too late.
 
