@@ -20,3 +20,7 @@ To finish the game or leave the application press the 'CTRL+F4'.
 ![Enemy downed](https://raw.githubusercontent.com/itsLuk4/falseking2Demo.github.io/master/screenshots/Hero2.png)
 
 ![Ladder movement](https://raw.githubusercontent.com/itsLuk4/falseking2Demo.github.io/master/screenshots/Hero3.png)
+
+## Play the game
+
+<a href="False King 2D/Demo/index.html"> To play the game, click the link!</a>
