@@ -15,6 +15,11 @@ Movement with 'left, right, up and down arrow keys' or 'a, d, w, s keys'.
 You attack the enemy with the 'Left Control' button.
 Jumping is with the 'Space-bar'.
 
+## Added note
+
+The game is unfinished which means it doesn't have yet a finish. 
+Meaning when you defeat all the monsters you can exit the game.
+
 ## Screenshots
 
 ![World](https://raw.githubusercontent.com/itsLuk4/falseking2Demo.github.io/master/screenshots/Hero1.png)
