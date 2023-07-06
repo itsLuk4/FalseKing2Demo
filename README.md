@@ -15,6 +15,6 @@ To finish the game or leave the application press the 'CTRL+F4'.
 
 ## Screenshots
 
-![World] (https://raw.githubusercontent.com/itsLuk4/falseking2Demo.github.io/master/screenshots/Hero1.png)
-![Enemy downed] (https://raw.githubusercontent.com/itsLuk4/falseking2Demo.github.io/master/screenshots/Hero2.png)
-![Ladder movement] (https://raw.githubusercontent.com/itsLuk4/falseking2Demo.github.io/master/screenshots/Hero3.png)
+!.[World].(https://raw.githubusercontent.com/itsLuk4/falseking2Demo.github.io/master/screenshots/Hero1.png)
+!.[Enemy downed].(https://raw.githubusercontent.com/itsLuk4/falseking2Demo.github.io/master/screenshots/Hero2.png)
+!.[Ladder movement].(https://raw.githubusercontent.com/itsLuk4/falseking2Demo.github.io/master/screenshots/Hero3.png)
