@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void PlayerHit()
+    public void PlayerHit()
     {
         // with this the enemy pushes the character back
         myRigidBody2D.velocity = hitKick * new Vector2(-transform.localScale.x, 1f);
@@ -183,5 +183,6 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireSphere(hurtBox.position, attackRadius);
     }
 
+    
 
 }
