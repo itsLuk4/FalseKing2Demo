@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     Animator myAnimator;
     BoxCollider2D myBoxCollider2D;
     PolygonCollider2D myPlayersFeet;
+    
+   
 
     float startingGravityScale;
     bool isHurting;
@@ -48,16 +50,24 @@ public class Player : MonoBehaviour
             Jump();
             Climb();
             Attack();
+            
 
             if (myBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Enemy")))
             {
                 PlayerHit();
             }
 
+            
             ExitLevel();
         }
-
+        
     }
+
+    public void doorIn()
+    {
+        myAnimator.SetTrigger("Door In");
+    }
+
 
     private void ExitLevel()
     {
@@ -65,6 +75,7 @@ public class Player : MonoBehaviour
 
         if (CrossPlatformInputManager.GetButtonUp("Vertical"))
         {
+            myAnimator.SetTrigger("Door In");
             FindObjectOfType<ExitDoor>().StartLoadingNextLevel();
         }
     }
@@ -92,13 +103,22 @@ public class Player : MonoBehaviour
         myAnimator.SetTrigger("Hitting");
         isHurting = true;
 
+        ////adding for processing lives
+        FindObjectOfType<GameSession>().ProcessPlayerDeath();
+
         StartCoroutine(StopHurting());
+
     }
 
-    // we made a Coroutine that waits for two seconds and turns the methos 'isHurting' false    
+    public void PlayDeath()
+    {
+        myAnimator.SetTrigger("isDead");
+    }
+
+    // we made a Coroutine that waits for two seconds and turns the method 'isHurting' false    
     IEnumerator StopHurting()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
         isHurting = false;
     }
