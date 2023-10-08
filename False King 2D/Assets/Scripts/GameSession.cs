@@ -14,6 +14,9 @@ public class GameSession : MonoBehaviour
 
     [SerializeField] Text scoreText, livesText;
 
+    //array of images
+    [SerializeField] Image[] hearts;
+
     //method called awake that start before the start method
     private void Awake()
     {
@@ -55,6 +58,11 @@ public class GameSession : MonoBehaviour
     public void AddToLife()
     {
         playerLives ++;
+        if(playerLives >= 3)
+        {
+            playerLives = 3;
+        }
+        updateHearts();
         livesText.text = playerLives.ToString();
     }
 
@@ -65,7 +73,7 @@ public class GameSession : MonoBehaviour
         if (playerLives > 1)
         {
             TakeLife();
-            livesText.text = playerLives.ToString();
+            
         }
         else
         {
@@ -76,8 +84,24 @@ public class GameSession : MonoBehaviour
     private void TakeLife()
     {
         playerLives--;
+        updateHearts();
+        livesText.text = playerLives.ToString();
     }
 
+    void updateHearts()
+    {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            if(i < playerLives)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
+    }
 
     private void ResetGame()
     {
