@@ -6,10 +6,17 @@ using UnityEngine.SceneManagement; //using it for scene management
 public class ExitDoor : MonoBehaviour
 {
 
+    [SerializeField] AudioClip openingDoorSFX;
+    [SerializeField] AudioClip closingDoorSFX;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GetComponent<Animator>().SetTrigger("Open");
-        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        GetComponent<Animator>().SetTrigger("Close");
     }
 
     // method to load next level, using scene manager
@@ -32,5 +39,16 @@ public class ExitDoor : MonoBehaviour
     public void closeDoor()
     {
         GetComponent<Animator>().SetTrigger("Close");
+
+    }
+
+    void playOpeningDoorSFX()
+    {
+        AudioSource.PlayClipAtPoint(openingDoorSFX, Camera.main.transform.position);
+    }
+
+    void playClosingDoorSFX()
+    {
+        AudioSource.PlayClipAtPoint(closingDoorSFX, Camera.main.transform.position);
     }
 }

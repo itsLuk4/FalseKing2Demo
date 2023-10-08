@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1444431481
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9717e1ab1c093474a8c725af3e354651, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -120,7 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7bf9f5f7795a9408fd5f4a47fb4f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 2
+  bombBurningSFX: {fileID: 8300000, guid: 997040df5f76f444d99975a2f045fae6, type: 3}
+  bombExplosionSFX: {fileID: 8300000, guid: f08f0e53e2955c944931df9e077e40ad, type: 3}
+  radius: 1
   explosionForce: {x: -600, y: 500}
 --- !u!61 &4443581901724366775
 BoxCollider2D:

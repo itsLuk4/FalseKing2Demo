@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 143315569
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -542495477, guid: 0eda344c5fd614249873d7f00e1481b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cf35b5adf05724aa7b257112d496d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyDyingSFX: {fileID: 8300000, guid: 758bb35324f38b84ca1517a2618deed4, type: 3}
   enemyRunSpeed: 2
 --- !u!61 &4637388663016571902
 BoxCollider2D:

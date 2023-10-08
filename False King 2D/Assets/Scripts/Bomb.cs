@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-
+    [SerializeField] AudioClip bombBurningSFX, bombExplosionSFX;
     [SerializeField] float radius = 3f;
     [SerializeField] Vector2 explosionForce = new Vector2(200f, 100f);
 
@@ -32,8 +32,11 @@ public class Bomb : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             myAnimator.SetTrigger("Burn");
-        }
 
+            //SFX burn
+            AudioSource.PlayClipAtPoint(bombBurningSFX, collision.transform.position);
+        }
+        
     }
 
     private void DestroyBomb()
@@ -44,5 +47,12 @@ public class Bomb : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, radius);
+    }
+
+    //SFX explosion
+
+    void explodingBombsSFX()
+    {
+        AudioSource.PlayClipAtPoint(bombExplosionSFX, Camera.main.transform.position);
     }
 }

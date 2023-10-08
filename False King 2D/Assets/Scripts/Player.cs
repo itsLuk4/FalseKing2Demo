@@ -11,10 +11,18 @@ public class Player : MonoBehaviour
     // its just like public where we change our inspector, but we manipulate the variable with a different script
     // in other words to change our variables i.e. you want to change players speed depending on the platform they are standing
     [SerializeField] float runSpeed = 10f;
+
     // now for jumping
     [SerializeField] float jumpSpeed = 15f;
+    
+    //for climbing
     [SerializeField] float climbingSpeed = 8f;
+    //for attack
     [SerializeField] float attackRadius = 3f;
+    //for SFX
+    [SerializeField] AudioClip jumpSFX, attackingSFX, runningSFX, gettingHitSFX,
+        deathSFX;
+    
     [SerializeField] Vector2 hitKick = new Vector2(10f, 10f);
     [SerializeField] Transform hurtBox;
 
@@ -23,6 +31,7 @@ public class Player : MonoBehaviour
     Animator myAnimator;
     BoxCollider2D myBoxCollider2D;
     PolygonCollider2D myPlayersFeet;
+    AudioSource myAudioSource;
     
    
 
@@ -36,8 +45,11 @@ public class Player : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myBoxCollider2D = GetComponent<BoxCollider2D>();
         myPlayersFeet = GetComponent<PolygonCollider2D>();
+        myAudioSource = GetComponent<AudioSource>();
 
         startingGravityScale = myRigidBody2D.gravityScale;
+
+        myAnimator.SetTrigger("Door Out");
     }
 
     // Update is called once per frame
@@ -80,11 +92,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    // function to turn of sprite renderer
+    public void TurnOffRenderer()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+    }
+
     private void Attack()
     {
         if (CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
             myAnimator.SetTrigger("Attacking");
+            myAudioSource.PlayOneShot(attackingSFX);
             Collider2D[] enemiesToHit = Physics2D.OverlapCircleAll(hurtBox.position, attackRadius, LayerMask.GetMask("Enemy"));
 
             foreach(Collider2D enemy in enemiesToHit)
@@ -103,6 +122,9 @@ public class Player : MonoBehaviour
         myAnimator.SetTrigger("Hitting");
         isHurting = true;
 
+        //SFX
+        myAudioSource.PlayOneShot(gettingHitSFX);
+
         ////adding for processing lives
         FindObjectOfType<GameSession>().ProcessPlayerDeath();
 
@@ -113,12 +135,20 @@ public class Player : MonoBehaviour
     public void PlayDeath()
     {
         myAnimator.SetTrigger("isDead");
+
+        //SFX
+        myAudioSource.PlayOneShot(deathSFX);
+
+        //make the body static
+        myRigidBody2D.bodyType = RigidbodyType2D.Static;
+        GetComponent<BoxCollider2D>().enabled = false;
+
     }
 
     // we made a Coroutine that waits for two seconds and turns the method 'isHurting' false    
     IEnumerator StopHurting()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         isHurting = false;
     }
@@ -160,14 +190,26 @@ public class Player : MonoBehaviour
             // this return takes us out of the jump method
             return;
         }
-
-        bool isJumping = CrossPlatformInputManager.GetButtonDown("Jump");
-        
-        // adding y velocity for jumping
-        if(isJumping) 
+        else if (myPlayersFeet.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
+            myAnimator.SetBool("isJumping", false);
+        }
+
+            bool isJumping = CrossPlatformInputManager.GetButtonDown("Jump");
+
+
+        // adding y velocity for jumping
+        if (isJumping) 
+        {
+
             Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, jumpSpeed);
             myRigidBody2D.velocity = jumpVelocity;
+
+            //jump sound
+            myAudioSource.PlayOneShot(jumpSFX);
+
+            //animation
+            myAnimator.SetBool("isJumping", true);
         }
     }
 
@@ -178,6 +220,7 @@ public class Player : MonoBehaviour
         // because its a 2D game we used Horizontal movement Axis from 'CrossPlatformInputManager'
         float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
 
+
         // Vector2 is a 2D x/y vector where we made it into a new vector from our 'controlThrow' and our rigid body of 'y velocitiy'
         // which is horizontal movement
         Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, myRigidBody2D.velocity.y);
@@ -187,8 +230,27 @@ public class Player : MonoBehaviour
         flipSprite();
 
         // a method that changes the animation state from idling to running and vice versa
-        runningState(); 
-        
+        runningState();
+
+
+    }
+
+    //creating SFX for moving player
+    void stepsSFX()
+    {
+        bool playerMovingHorizontally = Mathf.Abs(myRigidBody2D.velocity.x) > Mathf.Epsilon;
+
+        if (playerMovingHorizontally)
+        {
+            if (myBoxCollider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
+            {
+                myAudioSource.PlayOneShot(runningSFX);
+            }
+        }
+        else
+        {
+            myAudioSource.Stop();
+        }
     }
 
     // I used mathf.Abs/mathf.Sign the different is what it returns

@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a009a602c8db84dbd0efcc826c5a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diamondPickupSFX: {fileID: 8300000, guid: d41d704a71a47844087cdc1c33a208e0, type: 3}
